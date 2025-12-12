@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyaz Saçlara 10 Dakikada Veda Edin - İnceleme</title>
+    <title>Beyaz Saçlara Veda - İnceleme</title>
     
-    <!-- GOOGLE ANALYTICS -->
+    <!-- GOOGLE ANALYTICS BAŞLANGICI -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-741V768HPR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,137 +17,315 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* TÜM CSS (TASARIM) KODLARI BURADA */
         :root {
-            --primary: #111827;
-            --accent: #DC2626; /* Dikkat çekici kırmızı */
-            --bg: #F3F4F6;
-            --white: #FFFFFF;
-            --button: #22C55E; /* Güven veren yeşil */
-            --button-hover: #16A34A;
+            --primary-bg: #f3f4f6;
+            --white: #ffffff;
+            --text-main: #1f2937;
+            --text-light: #4b5563;
+            --red-accent: #dc2626;
+            --green-btn: #16a34a;
+            --green-hover: #15803d;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--primary); line-height: 1.5; }
-        
-        /* Mobil Öncelikli Dar Konteyner - Okumayı kolaylaştırır */
-        .container { max-width: 580px; margin: 0 auto; background: var(--white); min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        /* Header */
-        header { background: var(--primary); color: white; padding: 15px 20px; text-align: center; font-weight: 700; font-size: 14px; letter-spacing: 1px; }
-        .trusted-badge { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; font-size: 11px; text-transform: uppercase; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px; /* Sticky buton için boşluk */
+        }
+
+        /* Konteyner: Mobilde tam ekran, masaüstünde dar ve odaklı */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* Üst Header */
+        header {
+            background-color: #111827;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge {
+            background-color: rgba(255,255,255,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
 
         /* İçerik Alanı */
-        .content { padding: 25px 20px; }
-        
-        h1 { font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 15px; color: #1F2937; }
-        .highlight { color: var(--accent); }
-        
-        .hero-img { width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        
-        p { margin-bottom: 15px; font-size: 16px; color: #374151; }
-        
-        /* Liste Tasarımı */
-        ul { list-style: none; margin: 20px 0; border: 1px solid #E5E7EB; border-radius: 8px; padding: 15px; background: #F9FAFB; }
-        ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 15px; }
-        ul li:last-child { margin-bottom: 0; }
-        ul li::before { content: '✓'; color: var(--button); position: absolute; left: 0; font-weight: 800; }
-
-        /* Sosyal Kanıt Kutusu (Temiz) */
-        .proof-box { background: #FEF3C7; border: 1px solid #FCD34D; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center; }
-        .stars { color: #F59E0B; letter-spacing: 2px; font-size: 18px; margin-bottom: 5px; display: block; }
-        .proof-text { font-size: 13px; font-weight: 600; color: #92400E; }
-
-        /* Sticky Button (Sabit Alt Buton) */
-        .sticky-cta {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: white; 
-            padding: 15px; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); z-index: 100;
-            display: flex; justify-content: center;
+        .content {
+            padding: 24px 20px;
         }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .highlight {
+            color: var(--red-accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(220, 38, 38, 0.3);
+            text-underline-offset: 4px;
+        }
+
+        /* Görseller */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        p {
+            margin-bottom: 18px;
+            font-size: 17px;
+            color: #374151;
+        }
+
+        /* Sarı Kanıt Kutusu */
+        .proof-box {
+            background-color: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            margin: 24px 0;
+        }
+        
+        .stars {
+            color: #f59e0b;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+            display: block;
+        }
+        
+        .proof-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: #92400e;
+        }
+
+        /* Kontrol Listesi */
+        ul.checklist {
+            list-style: none;
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        ul.checklist li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        ul.checklist li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul.checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--green-btn);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        /* Merak Uyandıran Kutu */
+        .curiosity-box {
+            border: 2px dashed #6366f1;
+            background-color: #eef2ff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .curiosity-box h3 {
+            color: #4338ca;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .curiosity-box p {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* Sticky (Yapışkan) Alt Buton */
+        .sticky-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 12px 16px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
         .btn {
-            display: block; width: 100%; max-width: 540px; text-align: center;
-            background-color: var(--button); color: white; text-decoration: none;
-            padding: 16px; border-radius: 8px; font-size: 18px; font-weight: 800;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s;
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            background-color: var(--red-accent);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 800;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(220, 38, 38, 0.3);
             animation: pulse 2s infinite;
         }
-        .btn:active { transform: scale(0.98); }
-        .btn span { display: block; font-size: 12px; font-weight: 400; opacity: 0.9; margin-top: 2px; }
 
-        .btn-main { background-color: #DC2626; } /* Kırmızı buton daha çok tıklanır */
+        .btn:hover {
+            background-color: #b91c1c;
+        }
 
-        /* Alt Bilgi */
-        footer { text-align: center; font-size: 11px; color: #9CA3AF; padding: 20px; padding-bottom: 90px; }
-        
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn span {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+            padding: 30px 20px;
+            background-color: var(--white);
+            border-top: 1px solid #f3f4f6;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Tablet/Desktop İyileştirmesi */
+        @media (min-width: 768px) {
+            .container {
+                margin: 40px auto;
+                border-radius: 16px;
+                overflow: hidden;
+            }
+            body {
+                background-color: #e5e7eb;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <span class="trusted-badge">EDİTÖRÜN SEÇİMİ</span>
+            <span class="badge">EDİTÖRÜN TAVSİYESİ</span> &nbsp; İNCELEME
         </header>
 
         <main class="content">
-            <!-- BAŞLIK: Soruna ve Çözüme Odaklı -->
-            <h1>Beyaz Saçlara <span class="highlight">10 Dakikada</span> Veda Etmenin En Kolay Yolu Bulundu mu?</h1>
+            <h1>Beyaz Saçlara <span class="highlight">10 Dakikada</span> Veda Etmenin Yolu Bulundu mu?</h1>
             
             <p>Erkekler arasında hızla yayılan yeni bir yöntem, berbere gitmeden veya zararlı boyalar kullanmadan doğal saç rengine dönmeyi mümkün kılıyor.</p>
 
-            <!-- GÖRSEL: En güçlü silahın -->
-            <img src="../images/once-sonra.avif" alt="Önce ve Sonra Değişimi" class="hero-img">
+            <!-- 1. GÖRSEL -->
+            <img src="../images/once-sonra.avif" alt="Önce Sonra Değişim" width="600" height="400">
 
-            <!-- CLEAN SOCIAL PROOF (Rahatsız etmeyen kanıt) -->
             <div class="proof-box">
                 <span class="stars">★★★★★</span>
-                <span class="proof-text">Trendyol'da 4.8/5 Puan ve Binlerce Yorum</span>
+                <div class="proof-text">Trendyol'da 4.8/5 Puan ve Binlerce Yorum</div>
             </div>
 
             <p>Geleneksel saç boyaları aktığında kötü görünür, yapay durur ve cildi boyar. Ancak <strong>Softto Plus</strong> isimli bitkisel şampuan formülü, ezberleri bozuyor.</p>
 
-            <!-- FAYDALAR LİSTESİ: Okuması kolay -->
-            <ul>
-                <li><strong>Sadece 10 Dakika:</strong> Duşta normal şampuan gibi uygulanır.</li>
+            <ul class="checklist">
+                <li><strong>Hızlı Çözüm:</strong> Duşta sadece 10 dakikada uygulanır.</li>
                 <li><strong>Doğal Görünüm:</strong> "Peruk gibi" duran simsiyah renk yapmaz, kendi tonunuza döner.</li>
                 <li><strong>Leke Yapmaz:</strong> Yastığa, havluya veya cilde bulaşmaz.</li>
-                <li><strong>Uygun Maliyet:</strong> Kuaföre servet ödemeye son verir.</li>
+                <li><strong>Ekonomik:</strong> Kuaför masrafına son verir.</li>
             </ul>
 
             <p>Kullanıcılar sonuçlardan o kadar memnun ki, stoklar sık sık tükeniyor.</p>
 
-            <img src="../images/1.avif" alt="Kullanım Sonrası" class="hero-img" style="margin-top: 20px;">
+            <!-- 2. GÖRSEL -->
+            <img src="../images/1.avif" alt="Kullanıcı Deneyimi" width="600" height="400">
             
-            <!-- MERAK UNSURU CTA -->
-            <div style="background: #eef2ff; padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px; border: 1px dashed #6366f1;">
-                <h3 style="font-size: 18px; margin-bottom: 10px;">İndirim Var Mı?</h3>
-                <p style="font-size: 14px; margin-bottom: 15px;">Şu an Trendyol üzerinde kampanyalı fiyatların geçerli olduğu bildiriliyor. Stok durumunu ve size özel fiyatı kontrol etmek için aşağıdaki butonu kullanın.</p>
+            <div class="curiosity-box">
+                <h3>İndirim Var Mı?</h3>
+                <p>Şu an Trendyol üzerinde kampanyalı fiyatların geçerli olduğu bildiriliyor. Size özel fiyatı ve stok durumunu kontrol etmek için aşağıdaki butonu kullanın.</p>
             </div>
 
         </main>
 
         <footer>
-            <p>Bu site sponsorlu içerik barındırır. Sonuçlar kişiden kişiye değişebilir.<br>© 2025 TRDEHABER</p>
+            <p>Bu site sponsorlu içerik barındırır. Sonuçlar kişiden kişiye değişebilir.<br>© 2025 TRDEHABER. Tüm hakları saklıdır.</p>
         </footer>
     </div>
 
-    <!-- STICKY BUTTON: Mobilde her zaman parmağın altında -->
-    <div class="sticky-cta">
-        <a href="https://dub.sh/softtoplus1" class="btn btn-main sales-link">
-            FİYATI VE İNDİRİMİ GÖR
-            <span>Trendyol Güvencesiyle ➤</span>
+    <!-- STICKY BUTTON (MOBİLDE HEP GÖRÜNÜR) -->
+    <div class="sticky-wrapper">
+        <a href="https://dub.sh/softtoplus1" class="btn sales-link">
+            FİYATI VE İNDİRİMİ GÖR ➤
+            <span>Trendyol Güvencesiyle</span>
         </a>
     </div>
 
     <!-- TIKLAMA TAKİP KODU -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tıklama Takibi
             const links = document.querySelectorAll('.sales-link');
+            
             links.forEach(link => {
                 link.addEventListener('click', function() {
+                    // Analytics Etkinliği Gönder
                     if (typeof gtag === 'function') {
                         gtag('event', 'conversion', {
                             'send_to': 'G-741V768HPR',
